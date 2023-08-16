@@ -5,7 +5,6 @@ import data from '../json/data.json'
 
 
 
-const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 export default function ColorMap({Options,MapContainer,Longitude,Latitude,Zoom,Active,setMap}) {
 
   useEffect(() => {
@@ -60,6 +59,7 @@ export default function ColorMap({Options,MapContainer,Longitude,Latitude,Zoom,A
 
     // Clean up on unmount
     return () => map.remove();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Active]);
 
   return <div ref={MapContainer} className="map-container" />;

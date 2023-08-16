@@ -4,11 +4,9 @@ import MapGL, { Source, Layer, NavigationControl } from "react-map-gl";
 import ControlPanel from "../components/ControlPanel";
 import { HeatmapLayer } from "../Layers/HeatLayer";
 
-// MapGL.workerClass = MapboxWorker;
 
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
-const MAX_ZOOM_LEVEL = 9;
 
 function filterFeaturesByDay(featureCollection, time) {
   const date = new Date(time);
@@ -44,7 +42,6 @@ export default function HeatMap({
   const [earthquakes, setEarthQuakes] = useState(null);
 
   useEffect(() => {
-    /* global fetch */
     fetch("https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson")
       .then((resp) => resp.json())
       .then((json) => {

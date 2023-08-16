@@ -1,14 +1,12 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, {  useMemo, useState } from "react";
 import Map, {
   FullscreenControl,
   GeolocateControl,
   Marker,
   NavigationControl,
-  Popup,
   ScaleControl,
 } from "react-map-gl";
 import StyleControls from "../components/PGControlPanel";
-import MAP_STYLE from "../json/map-style-basic-v8.json";
 import Pin from "../components/Pin";
 import FormPage from "../FormPage";
 import POP from "../components/Pop";

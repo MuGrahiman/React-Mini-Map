@@ -3,7 +3,6 @@ import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-load
 
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
-// mapboxgl.dif = 'mujeebrahiman'
 export default function NormalMap({
   Options,
   MapContainer,
@@ -27,8 +26,8 @@ export default function NormalMap({
      
     setMap(map);
 
-    // Clean up on unmount
     return () => map.remove();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Active]);
 
   return <div ref={MapContainer} className="map-container" />;

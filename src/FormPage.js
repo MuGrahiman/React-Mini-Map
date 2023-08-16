@@ -5,18 +5,15 @@ import {
   useConfirmAddress,
 } from "@mapbox/search-js-react";
 import React, { useCallback, useEffect, useState } from "react";
-import ReactDOM from "react-dom";
 import Form from "./components/FormComponent";
 import MiniMap from "./components/MiniMap";
 
 export default function FormPage({ setForm, setFormValue, FormValue }) {
-  const [showFormExpanded, setShowFormExpanded] = useState(false);
   const [showMinimap, setShowMinimap] = useState(false);
   const [feature, setFeature] = useState();
   const [showValidationText, setShowValidationText] = useState(false);
   const [token, setToken] = useState("");
-  const [Lat, setLat] = useState(10.0274901);
-  const [Long, setLong] = useState(76.3225002);
+  
   const [Value, setValue] = useState({
     Country: "",
     State: "",
@@ -63,9 +60,9 @@ export default function FormPage({ setForm, setFormValue, FormValue }) {
       const { coordinates } = feature.geometry;
       const {
         country,
-        country_code,
+        
         region: state, // Rename 'region' to 'state'
-        region_code: state_code, // Rename 'statecode' to 'state_code'
+        // region_code: state_code, // Rename 'statecode' to 'state_code'
         district,
         locality: city,
         street,
@@ -85,7 +82,6 @@ export default function FormPage({ setForm, setFormValue, FormValue }) {
       });
       setFeature(feature);
       setShowMinimap(true);
-      setShowFormExpanded(true);
     },
     [setFeature, setShowMinimap]
   );
@@ -103,6 +99,7 @@ export default function FormPage({ setForm, setFormValue, FormValue }) {
       const result = await showConfirm();
       if (result.type === "nochange") submitForm();
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [showConfirm]
   );
 
@@ -130,7 +127,6 @@ export default function FormPage({ setForm, setFormValue, FormValue }) {
       Latitude: undefined,
       Full_Address: "",
     });
-    setShowFormExpanded(false);
     setShowValidationText(false);
     setFeature(null);
     console.log(FormValue);
@@ -177,8 +173,8 @@ export default function FormPage({ setForm, setFormValue, FormValue }) {
         </div>
         <div className="w-1/2">
           <MiniMap
-            lat={Lat}
-            lng={Long}
+            lat={10.0274901}
+            lng={10.0274901}
             setLat={(v) => setValue((pre) => ({ ...pre, Latitude: v }))}
             setLng={(v) => setValue((pre) => ({ ...pre, Longitude: v }))}
             updatePlaceName={handleFeatureSelect}

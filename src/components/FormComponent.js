@@ -116,7 +116,7 @@ export default function Form({ REF, onSubmit, ResetForm, setValue, Value }) {
         }))}
       />
       <label className="font-medium mt-1">Full Address</label>
-      <input
+      <input 
         className="w-full ring-1  ring-gray-300 rounded-md p-1"
         name="address"
         // autoComplete="address-line2"

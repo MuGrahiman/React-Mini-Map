@@ -1,7 +1,6 @@
 import MapGL, { Source, Layer } from "react-map-gl";
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
-const MAX_ZOOM_LEVEL = 9;
 
 const skylayer = (import("react-map-gl").SkyLayer = {
   id: "sky",
